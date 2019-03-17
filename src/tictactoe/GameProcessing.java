@@ -6,35 +6,39 @@ public class GameProcessing {
 
     private Elements elements;
 
-    Random random = new Random();
+    private Random random = new Random();
 
-    private int first;
-    private int second;
+    private int firstIndex;
+    private int secondIndex;
 
     public GameProcessing(Elements elements) {
         this.elements = elements;
-        this.first = random.nextInt(2);
-        this.second = random.nextInt(2);
+        this.firstIndex = random.nextInt(3);
+        this.secondIndex = random.nextInt(3);
     }
 
 
-    public void doProcess() {
-        Elements.getUserInputToGame()[elements.getRow() - 1][elements.getSaveIntegerInsteadColumn()]
-                = elements.startWith;
-        while (true) {
+    public void doProcess(int playedGameCount) {
 
-            if (Elements.getUserInputToGame()[first][second] == null
-                    || Elements.getUserInputToGame()[first][second].isEmpty()) {
-                Elements.getUserInputToGame()[first][second] = "O";
-
-                break;
-            } else {
-                this.first = random.nextInt(2);
-                this.second = random.nextInt(2);
-                System.out.println("Good");
+        if (Elements.getUserInputToGame()[elements.getRow() - 1][elements.getSaveIntegerInsteadColumn()] == null) {
+            Elements.getUserInputToGame()[elements.getRow() - 1][elements.getSaveIntegerInsteadColumn()]
+                    = elements.startWith;
+            while (playedGameCount != 4) {
+                System.out.println(firstIndex + " " + secondIndex);
+                if (Elements.getUserInputToGame()[firstIndex][secondIndex] == null) {
+                    Elements.getUserInputToGame()[firstIndex][secondIndex] = elements.getComputerPlayWith();
+                    break;
+                } else {
+                    this.firstIndex = random.nextInt(3);
+                    this.secondIndex = random.nextInt(3);
+                }
             }
-
+        } else {
+            System.out.println(elements.getRow() + "," + elements.getSaveIntegerInsteadColumn() +
+                    " box is not empty");
+            --Run.playedGameCount;
         }
+
 
         System.out.println(" " + " A" + " " + " " + " " + " B" + " " + " " + " " + " C");
         String printer = "1" + "  " + Elements.getUserInputToGame()[0][0] + " " + "|" + " " + Elements.getUserInputToGame()[0][1] + " " + "| " + Elements.getUserInputToGame()[0][2] + "\n"
