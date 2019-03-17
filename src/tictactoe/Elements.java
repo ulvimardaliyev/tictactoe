@@ -22,6 +22,26 @@ public class Elements {
     }
 
 
+
+    private void replaceLetterWithNum(String column) {
+
+        if (column.equals("A")) {
+            setSaveIntegerInsteadColumn(0);
+        } else if (column.equals("B")) {
+            setSaveIntegerInsteadColumn(1);
+        } else if (column.equals("C")) {
+            setSaveIntegerInsteadColumn(2);
+        }
+    }
+
+    public static void getRidOfNullElements() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                userInputToGame[i][j] = " ";
+            }
+        }
+    }
+
     public String getStartWithX() {
         return startWithX;
     }
@@ -34,7 +54,6 @@ public class Elements {
         return userInputToGame;
     }
 
-
     public int getSaveIntegerInsteadColumn() {
         return saveIntegerInsteadColumn;
     }
@@ -45,17 +64,6 @@ public class Elements {
 
     public String getComputerPlayWith() {
         return computerPlayWith;
-    }
-
-    private void replaceLetterWithNum(String column) {
-
-        if (column.equals("A")) {
-            setSaveIntegerInsteadColumn(0);
-        } else if (column.equals("B")) {
-            setSaveIntegerInsteadColumn(1);
-        } else if (column.equals("C")) {
-            setSaveIntegerInsteadColumn(2);
-        }
     }
 
     public int getRow() {

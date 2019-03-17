@@ -15,7 +15,7 @@ public class Run {
         System.out.println("Please, select an element to start a game: which do you want? X or O");
         Scanner scanner = new Scanner(System.in);
         Run run = new Run();
-
+        Elements.getRidOfNullElements();
         run.createAnElementToStartAGame(scanner);
 
         for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
@@ -24,8 +24,13 @@ public class Run {
                 if (Pattern.matches("[1-3][,][\\s][A-C]", run.playerInputPosition)) {
                     run.userInputPosition = run.playerInputPosition.split(", ");
                     Elements e = new Elements(Integer.parseInt(run.userInputPosition[0]), run.userInputPosition[1], playerInputX_O);
+
                     GameProcessing gameProcessing = new GameProcessing(e);
                     gameProcessing.doProcess(playedGameCount);
+                    if (gameProcessing.winsUserOrComputer()) {
+                        System.out.println("You win");
+                        playedGameCount = 5;
+                    }
                     break;
                 } else {
                     System.err.println("Please, enter correct style: \"1, B\" or \"2, C\"");

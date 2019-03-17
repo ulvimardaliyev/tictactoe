@@ -14,5 +14,9 @@ public class Test {
             //Elements e = new Elements(Integer.parseInt(userPositionInput[0]), userPositionInput[1]);
 
         }
+
+        String aa=" ";
+
+        System.out.println(aa.trim().isEmpty());
     }
 }
