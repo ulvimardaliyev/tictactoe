@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 public class Run {
 
     private static String playerInputX_O;
-    private String playerInputPosition;
+    private String playerEnteredPosition;
     static int playedGameCount;
-    private String userInputPosition[];
+    private String dividePlayerEnteredPositionToRowAndGameElement[];
 
     public static void main(String[] args) {
         System.out.println("Welcome to TicTacToe game.");
@@ -17,18 +17,28 @@ public class Run {
         Run run = new Run();
         Elements.getRidOfNullElements();
         run.createAnElementToStartAGame(scanner);
-
+        System.out.println(" " + " A" + " " + " " + " " + " B" + " " + " " + " " + " C");
+        String printer = "1" + "  " + Elements.getKeepPlayerEnteredPositions()[0][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[0][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[0][2] + "\n"
+                + " " + " " + " " + " " + " | " + " " + " " + "|\n"
+                + " - " + "- " + "- " + "- " + "- " + "- " + "- \n"
+                + "2" + " " + " " + Elements.getKeepPlayerEnteredPositions()[1][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[1][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[1][2] + "\n"
+                + " " + " " + " " + " " + " " + "|" + " " + " " + " " + "|\n"
+                + " - " + "- " + "- " + "- " + "- " + "- " + "- \n"
+                + "3" + " " + " " + Elements.getKeepPlayerEnteredPositions()[2][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[2][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[2][2] + "\n"
+                + " " + " " + " " + " " + " " + "|" + " " + " " + " " + "|\n";
+        System.out.println(printer);
         for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
             while (true) {
-                run.playerInputPosition = scanner.nextLine();
-                if (Pattern.matches("[1-3][,][\\s][A-C]", run.playerInputPosition)) {
-                    run.userInputPosition = run.playerInputPosition.split(", ");
-                    Elements e = new Elements(Integer.parseInt(run.userInputPosition[0]), run.userInputPosition[1], playerInputX_O);
+                run.playerEnteredPosition = scanner.nextLine();
+                if (Pattern.matches("[1-3][,][\\s][A-C]", run.playerEnteredPosition)) {
+                    run.dividePlayerEnteredPositionToRowAndGameElement = run.playerEnteredPosition.split(", ");
+                    Elements e = new Elements(Integer.parseInt(run.dividePlayerEnteredPositionToRowAndGameElement[0]),
+                            run.dividePlayerEnteredPositionToRowAndGameElement[1], playerInputX_O);
 
                     GameProcessing gameProcessing = new GameProcessing(e);
                     gameProcessing.doProcess(playedGameCount);
                     if (gameProcessing.winsUserOrComputer()) {
-                        System.out.println("You win");
+                        System.out.println("You won");
                         playedGameCount = 5;
                     }
                     break;

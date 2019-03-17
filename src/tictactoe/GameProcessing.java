@@ -20,12 +20,12 @@ public class GameProcessing {
 
     public void doProcess(int playedGameCount) {
 
-        if (Elements.getUserInputToGame()[elements.getRow() - 1][elements.getSaveIntegerInsteadColumn()].trim().isEmpty()) {
-            Elements.getUserInputToGame()[elements.getRow() - 1][elements.getSaveIntegerInsteadColumn()]
+        if (Elements.getKeepPlayerEnteredPositions()[elements.getRow() - 1][elements.getSaveIndexInsteadColumn()].trim().isEmpty()) {
+            Elements.getKeepPlayerEnteredPositions()[elements.getRow() - 1][elements.getSaveIndexInsteadColumn()]
                     = elements.startWith;
             while (playedGameCount != 4) {
-                if (Elements.getUserInputToGame()[firstIndex][secondIndex].trim().isEmpty()) {
-                    Elements.getUserInputToGame()[firstIndex][secondIndex] = elements.getComputerPlayWith();
+                if (Elements.getKeepPlayerEnteredPositions()[firstIndex][secondIndex].trim().isEmpty()) {
+                    Elements.getKeepPlayerEnteredPositions()[firstIndex][secondIndex] = elements.getComputerPlayWith();
                     break;
                 } else {
                     this.firstIndex = random.nextInt(3);
@@ -33,57 +33,57 @@ public class GameProcessing {
                 }
             }
         } else {
-            System.out.println(elements.getRow() + "," + elements.getSaveIntegerInsteadColumn() +
+            System.out.println(elements.getRow() + "," + elements.getSaveIndexInsteadColumn() +
                     " box is not empty");
             --Run.playedGameCount;
         }
 
 
         System.out.println(" " + " A" + " " + " " + " " + " B" + " " + " " + " " + " C");
-        String printer = "1" + "  " + Elements.getUserInputToGame()[0][0] + " " + "|" + " " + Elements.getUserInputToGame()[0][1] + " " + "| " + Elements.getUserInputToGame()[0][2] + "\n"
+        String printer = "1" + "  " + Elements.getKeepPlayerEnteredPositions()[0][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[0][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[0][2] + "\n"
                 + " " + " " + " " + " " + " | " + " " + " " + "|\n"
                 + " - " + "- " + "- " + "- " + "- " + "- " + "- \n"
-                + "2" + " " + " " + Elements.getUserInputToGame()[1][0] + " " + "|" + " " + Elements.getUserInputToGame()[1][1] + " " + "| " + Elements.getUserInputToGame()[1][2] + "\n"
+                + "2" + " " + " " + Elements.getKeepPlayerEnteredPositions()[1][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[1][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[1][2] + "\n"
                 + " " + " " + " " + " " + " " + "|" + " " + " " + " " + "|\n"
                 + " - " + "- " + "- " + "- " + "- " + "- " + "- \n"
-                + "3" + " " + " " + Elements.getUserInputToGame()[2][0] + " " + "|" + " " + Elements.getUserInputToGame()[2][1] + " " + "| " + Elements.getUserInputToGame()[2][2] + "\n"
+                + "3" + " " + " " + Elements.getKeepPlayerEnteredPositions()[2][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[2][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[2][2] + "\n"
                 + " " + " " + " " + " " + " " + "|" + " " + " " + " " + "|\n";
         System.out.println(printer);
     }
 
     public boolean winsUserOrComputer() {
 
-        if (Elements.getUserInputToGame()[0][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[0][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[0][2].equals(elements.startWith)) {
+        if (Elements.getKeepPlayerEnteredPositions()[0][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[0][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[0][2].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[1][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][2].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[1][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][2].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[2][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][2].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[2][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][2].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[0][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][0].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[0][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][0].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[0][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][1].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[0][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][1].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[0][2].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][2].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][2].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[0][2].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][2].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][2].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[0][0].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][2].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[0][0].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][2].equals(elements.startWith)) {
             return true;
-        } else if (Elements.getUserInputToGame()[0][2].equals(elements.startWith)
-                && Elements.getUserInputToGame()[1][1].equals(elements.startWith)
-                && Elements.getUserInputToGame()[2][0].equals(elements.startWith)) {
+        } else if (Elements.getKeepPlayerEnteredPositions()[0][2].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[1][1].equals(elements.startWith)
+                && Elements.getKeepPlayerEnteredPositions()[2][0].equals(elements.startWith)) {
             return true;
         }
 

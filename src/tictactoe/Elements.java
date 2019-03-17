@@ -9,9 +9,9 @@ public class Elements {
 
     private int row;
 
-    private int saveIntegerInsteadColumn;
+    private int saveIndexInsteadColumn;
 
-    private static String userInputToGame[][] = new String[3][3];
+    private static String keepPlayerEnteredPositions[][] = new String[3][3];
 
     Elements(int row, String column, String playerInputX_O) {
         this.row = row;
@@ -26,18 +26,18 @@ public class Elements {
     private void replaceLetterWithNum(String column) {
 
         if (column.equals("A")) {
-            setSaveIntegerInsteadColumn(0);
+            setSaveIndexInsteadColumn(0);
         } else if (column.equals("B")) {
-            setSaveIntegerInsteadColumn(1);
+            setSaveIndexInsteadColumn(1);
         } else if (column.equals("C")) {
-            setSaveIntegerInsteadColumn(2);
+            setSaveIndexInsteadColumn(2);
         }
     }
 
     public static void getRidOfNullElements() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                userInputToGame[i][j] = " ";
+                keepPlayerEnteredPositions[i][j] = " ";
             }
         }
     }
@@ -50,16 +50,16 @@ public class Elements {
         return startWithO;
     }
 
-    public static String[][] getUserInputToGame() {
-        return userInputToGame;
+    public static String[][] getKeepPlayerEnteredPositions() {
+        return keepPlayerEnteredPositions;
     }
 
-    public int getSaveIntegerInsteadColumn() {
-        return saveIntegerInsteadColumn;
+    public int getSaveIndexInsteadColumn() {
+        return saveIndexInsteadColumn;
     }
 
-    public void setSaveIntegerInsteadColumn(int saveIntegerInsteadColumn) {
-        this.saveIntegerInsteadColumn = saveIntegerInsteadColumn;
+    public void setSaveIndexInsteadColumn(int saveIndexInsteadColumn) {
+        this.saveIndexInsteadColumn = saveIndexInsteadColumn;
     }
 
     public String getComputerPlayWith() {
