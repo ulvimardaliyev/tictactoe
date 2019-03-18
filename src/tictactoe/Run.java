@@ -1,6 +1,7 @@
 package tictactoe;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Run {
@@ -9,6 +10,7 @@ public class Run {
     private String playerEnteredPosition;
     static int playedGameCount;
     private String dividePlayerEnteredPositionToRowAndGameElement[];
+    private static final String regex = "[1-3][,][\\s][A-C]";
 
     public static void main(String[] args) {
         System.out.println("Welcome to TicTacToe game.");
@@ -27,10 +29,15 @@ public class Run {
                 + "3" + " " + " " + Elements.getKeepPlayerEnteredPositions()[2][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[2][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[2][2] + "\n"
                 + " " + " " + " " + " " + " " + "|" + " " + " " + " " + "|\n";
         System.out.println(printer);
+
+        Pattern pattern = Pattern.compile(regex);
+
+
         for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
             while (true) {
                 run.playerEnteredPosition = scanner.nextLine();
-                if (Pattern.matches("[1-3][,][\\s][A-C]", run.playerEnteredPosition)) {
+                Matcher matcher = pattern.matcher(run.playerEnteredPosition);
+                if (matcher.find()) {
                     run.dividePlayerEnteredPositionToRowAndGameElement = run.playerEnteredPosition.split(", ");
                     Elements e = new Elements(Integer.parseInt(run.dividePlayerEnteredPositionToRowAndGameElement[0]),
                             run.dividePlayerEnteredPositionToRowAndGameElement[1], playerInputX_O);
