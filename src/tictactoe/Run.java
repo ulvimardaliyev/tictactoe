@@ -74,7 +74,7 @@ public class Run {
         }
     }
 
-    private String playground() {
+    public String playground() {
         String column = " " + " A" + " " + " " + " " + " B" + " " + " " + " " + " C";
         String row = "1" + "  " + Elements.getKeepPlayerEnteredPositions()[0][0] + " " + "|" + " " + Elements.getKeepPlayerEnteredPositions()[0][1] + " " + "| " + Elements.getKeepPlayerEnteredPositions()[0][2] + "\n"
                 + " " + " " + " " + " " + " | " + " " + " " + "|\n"
