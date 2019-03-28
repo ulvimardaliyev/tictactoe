@@ -13,11 +13,11 @@ public class Elements {
 
     private static String keepPlayerEnteredPositions[][] = new String[3][3];
 
-    Elements(int row, String column, String playerInputX_O) {
+    Elements(int row, String column, String playWithX_O) {
         this.row = row;
         replaceLetterWithNum(column);
-        this.startWith = playerInputX_O;
-        this.computerPlayWith = playerInputX_O.equals("X") ? (this.computerPlayWith = this.getStartWithO())
+        this.startWith = playWithX_O;
+        this.computerPlayWith = playWithX_O.equals("X") ? (this.computerPlayWith = this.getStartWithO())
                 : (this.computerPlayWith = this.getStartWithX());
     }
 

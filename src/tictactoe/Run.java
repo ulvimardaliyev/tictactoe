@@ -46,12 +46,10 @@ public class Run {
 
         System.out.println(playground());
 
-
         Pattern pattern = Pattern.compile(regex);
 
         Predicate<String> matchUserInputPositionToRegex =
                 (userPosition) -> pattern.matcher(userPosition).find();
-
 
         for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
             while (true) {
