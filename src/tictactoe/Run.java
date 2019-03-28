@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Run {
 
-    private static String playerInputX_O;
+    private static String playWithX_O;
     private String playerEnteredPosition;
     static int playedGameCount;
     private String dividePlayerEnteredPositionToRowAndColumn[];
@@ -20,11 +20,11 @@ public class Run {
     public void chooseX_OToStartGame(Scanner scanner) {
 
         while (true) {
-            playerInputX_O = scanner.next();
-            if (playerInputX_O.equals("X")) {
+            playWithX_O = scanner.next();
+            if (playWithX_O.equals("X")) {
                 System.out.println("Okay, let's start with " + "\"X\"");
                 break;
-            } else if (playerInputX_O.equals("O")) {
+            } else if (playWithX_O.equals("O")) {
                 System.out.println("Okay, let's start with " + "\"O\"");
                 break;
             } else {
@@ -60,7 +60,7 @@ public class Run {
                 if (matchUserInputPositionToRegex.test(run.playerEnteredPosition)) {
                     run.dividePlayerEnteredPositionToRowAndColumn = run.playerEnteredPosition.split(", ");
                     Elements elements = new Elements(Integer.parseInt(run.dividePlayerEnteredPositionToRowAndColumn[0]),
-                            run.dividePlayerEnteredPositionToRowAndColumn[1], playerInputX_O);
+                            run.dividePlayerEnteredPositionToRowAndColumn[1], playWithX_O);
 
                     GameProcessing gameProcessing = new GameProcessing(elements);
                     gameProcessing.doProcess(playedGameCount);
