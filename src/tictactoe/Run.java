@@ -7,9 +7,6 @@ import java.util.regex.Pattern;
 public class Run {
 
     //private static String playWithX_O;
-    private String playerEnteredPosition;
-
-    private String dividePlayerEnteredPositionToRowAndColumn[];
 
 
     public static void main(String[] args) {
@@ -50,15 +47,18 @@ public class Run {
         Predicate<String> matchUserInputPositionToRegex =
                 (userPosition) -> pattern.matcher(userPosition).find();
 
+        String playerEnteredPosition;
+        String dividePlayerEnteredPositionToRowAndColumn[];
 
         for (int playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
-            while (true) {
-                this.playerEnteredPosition = scanner.nextLine();
 
-                if (matchUserInputPositionToRegex.test(this.playerEnteredPosition)) {
-                    this.dividePlayerEnteredPositionToRowAndColumn = this.playerEnteredPosition.split(", ");
-                    Elements elements = new Elements(Integer.parseInt(this.dividePlayerEnteredPositionToRowAndColumn[0]),
-                            this.dividePlayerEnteredPositionToRowAndColumn[1], playWithX_O);
+            while (true) {
+                playerEnteredPosition = scanner.nextLine();
+
+                if (matchUserInputPositionToRegex.test(playerEnteredPosition)) {
+                    dividePlayerEnteredPositionToRowAndColumn = playerEnteredPosition.split(", ");
+                    Elements elements = new Elements(Integer.parseInt(dividePlayerEnteredPositionToRowAndColumn[0]),
+                            dividePlayerEnteredPositionToRowAndColumn[1], playWithX_O);
 
                     GameProcessing gameProcessing = new GameProcessing(elements);
                     gameProcessing.doProcess(playedGameCount);
