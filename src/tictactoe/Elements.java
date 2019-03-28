@@ -70,3 +70,7 @@ public class Elements {
         return row;
     }
 }
+
+
+//getRidOfNullElements bunu costructorun icinde yaratmaq lazimdir, static keyword-dan da 100 -100 yerde istifade edence
+// istifade etmek olar ve 1 defe ucun static-e ehtiyac yoxdur

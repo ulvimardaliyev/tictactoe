@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Run {
 
-    private static String playWithX_O;
+    //private static String playWithX_O;
     private String playerEnteredPosition;
     static int playedGameCount;
     private String dividePlayerEnteredPositionToRowAndColumn[];
@@ -17,21 +17,20 @@ public class Run {
         run.startGame(run);
     }
 
-    public void chooseX_OToStartGame(Scanner scanner) {
+    public String chooseX_OToStartGame(Scanner scanner) {
 
         while (true) {
-            playWithX_O = scanner.next();
+            String playWithX_O = scanner.next();
             if (playWithX_O.equals("X")) {
                 System.out.println("Okay, let's start with " + "\"X\"");
-                break;
+                return playWithX_O;
             } else if (playWithX_O.equals("O")) {
                 System.out.println("Okay, let's start with " + "\"O\"");
-                break;
+                return playWithX_O;
             } else {
                 System.err.println("No no no. Please, enter correct element, X or O");
             }
         }
-
     }
 
     public void startGame(Run run) {
@@ -41,8 +40,8 @@ public class Run {
 
         Scanner scanner = new Scanner(System.in);
 
-        Elements.getRidOfNullElements();
-        run.chooseX_OToStartGame(scanner);
+        Elements.getRidOfNullElements();//adi static olmayan
+        this.chooseX_OToStartGame(scanner);
 
         System.out.println(playground());
 
