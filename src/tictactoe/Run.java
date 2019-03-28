@@ -8,13 +8,13 @@ public class Run {
 
     //private static String playWithX_O;
     private String playerEnteredPosition;
-    static int playedGameCount;
+
     private String dividePlayerEnteredPositionToRowAndColumn[];
-    private static final String regex = "[1-3][,][\\s][A-C]";
+
 
     public static void main(String[] args) {
         Run run = new Run();
-        run.startGame(run);
+        run.startGame();
     }
 
     public String chooseX_OToStartGame(Scanner scanner) {
@@ -33,7 +33,7 @@ public class Run {
         }
     }
 
-    public void startGame(Run run) {
+    public void startGame() {
 
         System.out.println("Welcome to TicTacToe game.");
         System.out.println("Please, select an element to start a game: which do you want? X or O");
@@ -41,23 +41,24 @@ public class Run {
         Scanner scanner = new Scanner(System.in);
 
         Elements.getRidOfNullElements();//adi static olmayan
-        this.chooseX_OToStartGame(scanner);
+        String playWithX_O = this.chooseX_OToStartGame(scanner);
 
         System.out.println(playground());
-
+        final String regex = "[1-3][,][\\s][A-C]";
         Pattern pattern = Pattern.compile(regex);
 
         Predicate<String> matchUserInputPositionToRegex =
                 (userPosition) -> pattern.matcher(userPosition).find();
 
-        for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
-            while (true) {
-                run.playerEnteredPosition = scanner.nextLine();
 
-                if (matchUserInputPositionToRegex.test(run.playerEnteredPosition)) {
-                    run.dividePlayerEnteredPositionToRowAndColumn = run.playerEnteredPosition.split(", ");
-                    Elements elements = new Elements(Integer.parseInt(run.dividePlayerEnteredPositionToRowAndColumn[0]),
-                            run.dividePlayerEnteredPositionToRowAndColumn[1], playWithX_O);
+        for (int playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
+            while (true) {
+                this.playerEnteredPosition = scanner.nextLine();
+
+                if (matchUserInputPositionToRegex.test(this.playerEnteredPosition)) {
+                    this.dividePlayerEnteredPositionToRowAndColumn = this.playerEnteredPosition.split(", ");
+                    Elements elements = new Elements(Integer.parseInt(this.dividePlayerEnteredPositionToRowAndColumn[0]),
+                            this.dividePlayerEnteredPositionToRowAndColumn[1], playWithX_O);
 
                     GameProcessing gameProcessing = new GameProcessing(elements);
                     gameProcessing.doProcess(playedGameCount);
