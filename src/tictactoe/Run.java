@@ -1,7 +1,7 @@
 package tictactoe;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class Run {
@@ -48,13 +48,16 @@ public class Run {
 
 
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher;
+
+        Predicate<String> matchUserInputPositionToRegex =
+                (userPosition) -> pattern.matcher(userPosition).find();
+
 
         for (playedGameCount = 0; playedGameCount < 5; playedGameCount++) {
             while (true) {
                 run.playerEnteredPosition = scanner.nextLine();
-                matcher = pattern.matcher(run.playerEnteredPosition);
-                if (matcher.find()) {
+
+                if (matchUserInputPositionToRegex.test(run.playerEnteredPosition)) {
                     run.dividePlayerEnteredPositionToRowAndColumn = run.playerEnteredPosition.split(", ");
                     Elements elements = new Elements(Integer.parseInt(run.dividePlayerEnteredPositionToRowAndColumn[0]),
                             run.dividePlayerEnteredPositionToRowAndColumn[1], playerInputX_O);
