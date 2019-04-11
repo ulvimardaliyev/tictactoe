@@ -33,7 +33,7 @@ public class GameProcessing {
                 }
             }
         } else {
-            System.out.println(elements.getRow() + "," + elements.getSaveIndexInsteadColumn() +
+            System.out.println(elements.getRow() + "," + elements.getColumn() +
                     " box is not empty");
             --Run.playedGameCount;
         }

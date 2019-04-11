@@ -8,19 +8,19 @@ public class Elements {
     private static String startWithO = "O";
 
     private int row;
-
+    private String column;
     private int saveIndexInsteadColumn;
 
     private static String keepPlayerEnteredPositions[][] = new String[3][3];
 
-    Elements(int row, String column, String playerInputX_O) {
+    Elements(int row, String column, String playWithX_O) {
         this.row = row;
+        this.column = column;
         replaceLetterWithNum(column);
-        this.startWith = playerInputX_O;
-        this.computerPlayWith = playerInputX_O.equals("X") ? (this.computerPlayWith = this.getStartWithO())
+        this.startWith = playWithX_O;
+        this.computerPlayWith = playWithX_O.equals("X") ? (this.computerPlayWith = this.getStartWithO())
                 : (this.computerPlayWith = this.getStartWithX());
     }
-
 
 
     private void replaceLetterWithNum(String column) {
@@ -40,6 +40,10 @@ public class Elements {
                 keepPlayerEnteredPositions[i][j] = " ";
             }
         }
+    }
+
+    public String getColumn() {
+        return this.column;
     }
 
     public String getStartWithX() {
@@ -70,3 +74,7 @@ public class Elements {
         return row;
     }
 }
+
+
+//getRidOfNullElements bunu costructorun icinde yaratmaq lazimdir, static keyword-dan da 100 -100 yerde istifade edence
+// istifade etmek olar ve 1 defe ucun static-e ehtiyac yoxdur
